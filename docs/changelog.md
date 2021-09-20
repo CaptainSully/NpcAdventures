@@ -2,8 +2,8 @@
 
 ## 0.16.2 "Revival"
 
-- Fixes rare error in GetCharacterFromName() postfix
-- Changed Harmony references to Harmony2.0
+- Fixes rare error in GetCharacterFromName() postfix (thx shekurika)
+- Changed Harmony references to Harmony2.0 (thx shekurika)
 
 ## 0.16.1 "Revival"
 
