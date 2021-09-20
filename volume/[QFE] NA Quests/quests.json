@@ -24,6 +24,7 @@
             "TargetName": "Slime, Jelly, Sludge"
           },
           "When": {
+            // Count killed monster only when Abigail is recruited
             "purrplingcat.npcadventure/CompanionRecruited": "Abigail"
           },
           "Description": "Slay some slimes together with Abigail",
@@ -38,6 +39,91 @@
             "DialogueText": "Fighting with monsters is fun! It was amazing adventure, do you think?$h#$b#Thank you for you taken me with you."
           },
           "Description": "Talk to Abby"
+        }
+      ],
+      "Cancelable": true
+    },
+    {
+      "Name": "emily_collection1",
+      "Type": "PurrplingCat.QuestEssentials/Special",
+      "Title": "Color of minerals",
+      "Description": "Emily needs some minerals for dying clothes. Take her into mines and gather one piece of different minerals.",
+      "Tasks": [
+        {
+          "Name": "recruit_emily",
+          "Type": "Recruit",
+          "Data": {
+            "CompanionName": "Emily"
+          },
+          "Description": "Pick up Emily"
+        },
+        {
+          "Name": "collect_amethyst",
+          "Type": "Collect",
+          "RequiredTasks": [ "recruit_emily" ],
+          "Data": {
+            "AcceptedContextTags": "item_amethyst"
+          },
+          "When": {
+            // Count collected mineral only when Emily is recruited
+            "purrplingcat.npcadventure/CompanionRecruited": "Emily"
+          },
+          "Description": "Find Amethyst"
+        },
+        {
+          "Name": "collect_aquamarine",
+          "Type": "Collect",
+          "RequiredTasks": [ "recruit_emily" ],
+          "Data": {
+            "AcceptedContextTags": "item_aquamarine"
+          },
+          "When": {
+            // Count collected mineral only when Emily is recruited
+            "purrplingcat.npcadventure/CompanionRecruited": "Emily"
+          },
+          "Description": "Find Aquamarine"
+        },
+        {
+          "Name": "collect_earth_crystal",
+          "Type": "Collect",
+          "RequiredTasks": [ "recruit_emily" ],
+          "Data": {
+            "AcceptedContextTags": "item_earth_crystal"
+          },
+          "When": {
+            // Count collected mineral only when Emily is recruited
+            "purrplingcat.npcadventure/CompanionRecruited": "Emily"
+          },
+          "Description": "Find Earth Crystal"
+        },
+        {
+          "Name": "collect_malachite",
+          "Type": "Collect",
+          "RequiredTasks": [ "recruit_emily" ],
+          "Data": {
+            "AcceptedContextTags": "item_malachite"
+          },
+          "When": {
+            // Count collected mineral only when Emily is recruited
+            "purrplingcat.npcadventure/CompanionRecruited": "Emily"
+          },
+          "Description": "Find Earth Crystal"
+        },
+        {
+          "Name": "talk_with_emily",
+          "Type": "Talk",
+          "RequiredTasks": [
+            "collect_amethyst",
+            "collect_aquamarine",
+            "collect_earth_crystal",
+            "collect_malachite"
+          ],
+          "Data": {
+            "NpcName": "Emily",
+            "DialogueText": "Thank you for your help.",
+            "RequiredItems": "object_amethyst, object_aquamarine, object_earth_crystal, object_malachite"
+          },
+          "Description": "Talk to Emily in her house and give her minerals"
         }
       ],
       "Cancelable": true
