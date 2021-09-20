@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using NpcAdventure.Events;
 using PurrplingCore.Patching;
 using StardewValley;
@@ -65,7 +65,7 @@ namespace NpcAdventure.Patches
             return true;
         }
 
-        protected override void Apply(HarmonyInstance harmony)
+        protected override void Apply(Harmony harmony)
         {
             harmony.Patch(
                 original: AccessTools.Method(typeof(GameLocation), nameof(GameLocation.mailbox)),

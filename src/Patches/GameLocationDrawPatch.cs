@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using Microsoft.Xna.Framework.Graphics;
 using NpcAdventure.Events;
 using PurrplingCore.Patching;
@@ -37,7 +37,7 @@ namespace NpcAdventure.Patches
             }
         }
 
-        protected override void Apply(HarmonyInstance harmony)
+        protected override void Apply(Harmony harmony)
         {
             harmony.Patch(
                 original: AccessTools.Method(typeof(GameLocation), nameof(GameLocation.draw)),

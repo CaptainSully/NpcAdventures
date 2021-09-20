@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using PurrplingCore.Patching;
 using StardewValley;
 using System;
@@ -29,6 +29,10 @@ namespace NpcAdventure.Patches
         {
             try
             {
+                if(name == null)
+                {
+                    return;
+                }
                 if (__result == null && Instance.Manager.PossibleCompanions.TryGetValue(name, out var csm) && csm.Companion?.currentLocation != null)
                 {
                     __result = csm.Companion;
@@ -45,7 +49,7 @@ namespace NpcAdventure.Patches
             return m.Name == nameof(Game1.getCharacterFromName) && m.ReturnType == typeof(NPC) && !m.IsGenericMethod;
         }
 
-        protected override void Apply(HarmonyInstance harmony)
+        protected override void Apply(Harmony harmony)
         {
             harmony.Patch(
                 original: AccessTools.GetDeclaredMethods(typeof(Game1)).Find(MatchGetCharacterFromNameMethod),

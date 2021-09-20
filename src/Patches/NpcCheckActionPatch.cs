@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using NpcAdventure.Compatibility;
 using NpcAdventure.Model;
 using PurrplingCore.Patching;
@@ -86,7 +86,7 @@ namespace NpcAdventure.Patches
             }
         }
 
-        protected override void Apply(HarmonyInstance harmony)
+        protected override void Apply(Harmony harmony)
         {
             harmony.Patch(
                 original: AccessTools.Method(typeof(NPC), nameof(NPC.checkAction)),

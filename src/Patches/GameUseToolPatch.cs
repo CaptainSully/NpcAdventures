@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using NpcAdventure.StateMachine;
 using PurrplingCore.Patching;
 using StardewValley;
@@ -57,7 +57,7 @@ namespace NpcAdventure.Patches
             || Game1.dialogueUp 
             || Game1.eventUp);
 
-        protected override void Apply(HarmonyInstance harmony)
+        protected override void Apply(Harmony harmony)
         {
             harmony.Patch(
                 original: AccessTools.Method(typeof(Game1), nameof(Game1.pressUseToolButton)),

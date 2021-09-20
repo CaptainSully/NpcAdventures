@@ -1,5 +1,10 @@
 # Full changelog
 
+## 0.16.2 "Revival"
+
+- Fixes rare error in GetCharacterFromName() postfix
+- Changed Harmony references to Harmony2.0
+
 ## 0.16.1 "Revival"
 
 - Fixed issue with following through cooled lava in volcano
