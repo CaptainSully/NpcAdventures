@@ -1,5 +1,9 @@
 # Full changelog
 
+## 0.16.3 "Revival"
+
+- Fixed Quest Framework version dependency to 1.4 in manifest.json
+
 ## 0.16.2 "Revival"
 
 - Fixes rare error in GetCharacterFromName() postfix (thx shekurika)
