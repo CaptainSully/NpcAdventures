@@ -53,7 +53,7 @@ namespace NpcAdventure.AI
         internal IMonitor Monitor { get; private set; }
 
         private readonly IContentLoader loader;
-        private readonly Countdown cooldown = new Countdown();
+        private readonly Countdown cooldown = new();
         private Dictionary<State, IController> controllers;
 
         internal AI_StateMachine(CompanionStateMachine csm, CompanionDisplay hud, IModEvents events, IMonitor monitor)
@@ -330,7 +330,7 @@ namespace NpcAdventure.AI
 
         private void OnLocationChanged(GameLocation previous, GameLocation next)
         {
-            EventArgsLocationChanged args = new EventArgsLocationChanged()
+            EventArgsLocationChanged args = new()
             {
                 PreviousLocation = previous,
                 CurrentLocation = next,

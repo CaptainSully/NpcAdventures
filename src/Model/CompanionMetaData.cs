@@ -12,7 +12,8 @@ namespace NpcAdventure.Model
 
             if (parts.Length < 5)
             {
-                throw new ArgumentOutOfRangeException("Companion disposition metadata arguments is invalid!");
+                ArgumentOutOfRangeException argumentOutOfRangeException = new("Companion disposition metadata arguments is invalid!");
+                throw argumentOutOfRangeException;
             }
 
             this.Recruitable = parts[0];

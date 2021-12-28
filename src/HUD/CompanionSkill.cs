@@ -58,14 +58,14 @@ namespace NpcAdventure.HUD
 
             // Draw empty icon box
             spriteBatch.Draw(Game1.mouseCursors, this.framePosition, new Rectangle(384, 373, 18, 18), glowing * 1f, 0f, Vector2.Zero, 3.4f, SpriteEffects.None, 1f);
-            
-            if (this.icon != null) // Draw icon if it's set
+
+            if (icon != null) // Draw icon if it's set
                 spriteBatch.Draw(Game1.mouseCursors, this.iconPosition, this.icon, Color.White * 1f, 0f, Vector2.Zero, 2.8f, SpriteEffects.None, 1f);
         }
 
         public void PerformHoverAction(int x, int y)
         {
-            Rectangle frameBounding = new Rectangle((int)this.framePosition.X, (int)this.framePosition.Y, 18 * 4, 18 * 4);
+            Rectangle frameBounding = new((int)this.framePosition.X, (int)this.framePosition.Y, 18 * 4, 18 * 4);
 
             if (frameBounding.Contains(x, y))
             {

@@ -2,10 +2,10 @@
   <PropertyGroup>
     <AssemblyName>NpcAdventure</AssemblyName>
     <RootNamespace>NpcAdventure</RootNamespace>
-    <Version>0.16.0</Version>
-    <TargetFramework>net452</TargetFramework>
-    <Platforms>x86</Platforms>
-    <PlatformTarget>x86</PlatformTarget>
+    <Version>0.16.1</Version>
+    <TargetFramework>net5.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <EnableHarmony>true</EnableHarmony>
     <Authors>PurrplingCat</Authors>
     <Product>NpcAdventures</Product>
@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="3.2.2" />
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.0" />
     <Reference Include="ExpandedPreconditionsUtility" HintPath="$(GamePath)\Mods\ExpandedPreconditionsUtility\ExpandedPreconditionsUtility.dll" Private="false" />
   </ItemGroup>
 
@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(SolutionDir)\QuestFramework\QuestFramework.csproj">
+    <ProjectReference Include="..\QuestFramework\QuestFramework.csproj">
       <Private>false</Private>
     </ProjectReference>
   </ItemGroup>
