@@ -65,7 +65,7 @@ namespace NpcAdventure.Utils
                                           
         public static List<Point> NearPoints(Point p, int distance)
         {
-            List<Point> points = new List<Point>();
+            List<Point> points = new();
             for (int x = p.X - distance; x <= p.X + distance; x++)
             {
                 for (int y = p.Y - distance; y <= p.Y + distance; y++)
@@ -157,7 +157,7 @@ namespace NpcAdventure.Utils
         }
         private static List<Tuple<Point, float>> MapNearPointsWithDistance(List<Point> nearPoints, Point startTilePoint)
         {
-            List<Tuple<Point, float>> nearPointsWithDistance = new List<Tuple<Point, float>>();
+            List<Tuple<Point, float>> nearPointsWithDistance = new();
 
             foreach (Point nearPoint in nearPoints)
             {
@@ -201,11 +201,11 @@ namespace NpcAdventure.Utils
         public static SortedDictionary<float, Monster> GetNearestMonstersToCharacter(Character me, float tileDistance, Func<Monster, bool> extraCondition)
         {
             float thresDistance = tileDistance * 64f;
-            SortedDictionary<float, Monster> nearestMonsters = new SortedDictionary<float, Monster>();
+            SortedDictionary<float, Monster> nearestMonsters = new();
 
             foreach (Character c in me.currentLocation.characters)
             {
-                if (!(c is Monster monster))
+                if (c is not Monster monster)
                     continue;
 
                 float monsterDistance = Helper.Distance(me.GetBoundingBox().Center, monster.GetBoundingBox().Center);

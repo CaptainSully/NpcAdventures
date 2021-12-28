@@ -39,11 +39,13 @@ namespace NpcAdventure
         internal static List<string> DebugFlags { get; } = new List<string>();
         internal static IManifest Manifest { get; private set; }
         internal static IReflectionHelper Reflection { get; private set; }
+        internal static NpcAdventureMod Instance { get; set; }
 
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
+            Instance = this;
             Manifest = this.ModManifest;
             Reflection = helper.Reflection;
             this.Config = helper.ReadConfig<Config>();
@@ -115,12 +117,16 @@ namespace NpcAdventure
             {
                 // Check if methods patched by NA are patched by other mods
                 this.Patcher.CheckPatches();
+
+                Config.SetUpModConfigMenu(Config, this);
+                Config.VerifyConfigValues(Config, this);
+
                 this.firstTick = false;
             }
 
             if (Context.IsMultiplayer && Context.IsWorldReady)
             {
-                this.Monitor.Log("Detected unexpected multiplayer mode. NPC Adventures may cause some issues with multiplayer because it's not (and never be) compatible.", LogLevel.Warn);
+                this.Monitor.Log("Detected unexpected multiplayer mode. NPC Adventures may cause some issues with multiplayer because it's not (and will never be) compatible.", LogLevel.Warn);
                 this.Monitor.LogOnce("Never play NPC Adventures in multiplayer - It's not compatible! (Don't report this as bug)", LogLevel.Error);
 
             }
